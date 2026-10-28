@@ -49,12 +49,12 @@ Sesuai instruksi brief Rakamin:
 - **Dampak UX**: Menghilangkan kebingungan pengguna di mana sebelumnya form tidak memberikan tanda berhasil atau animasi feedback sama sekali saat tombol "Save Changes" ditekan.
 
 
-### Item 4: Modern & Minimalist Authentication Card with Forgot Password Flow
+### Item 4: Modern & Minimalist Authentication Card
 - **File Dimodifikasi**: `web/src/pages/auth/LoginPage.tsx`
 - **Tujuan**:
-  1. Mengganti form login flat yang polos menjadi card autentikasi modern berlatar belakang subtle (`bg-slate-50/60`), border halus, dan bayangan lembut (*soft shadow*).
-  2. Menambahkan fitur dan dialog interaktif **"Forgot password?"** untuk pemulihan kata sandi dengan konfirmasi terkirim.
-  3. Memastikan input form memiliki state fokus yang jelas dan kredensial demo yang transparan bagi evaluator.
+  1. Mengganti form login flat yang polos menjadi card autentikasi modern berlatar belakang subtle (`bg-slate-50/70`), border halus, dan bayangan lembut (*soft shadow*).
+  2. Menyediakan tombol pintas **"Isi kredensial demo"** agar asesor dan penguji dapat masuk ke aplikasi dengan sekali klik tanpa mengetik manual.
+  3. Memastikan input form memiliki placeholder instruksi netral yang tidak membingungkan pengguna.
 
 ### Item 5: Recruiter Workflow Integration (Import from Vacancy to Assessment)
 - **File Dimodifikasi**: `web/src/pages/assessments/AssessmentNewPage.tsx`
@@ -121,8 +121,7 @@ Gunakan alur berikut saat merekam video demonstrasi (menggunakan OBS / Loom / Xb
 1. **Bagian 1: Autentikasi Elegan & Cepat (0:00 - 0:45)**
    - Buka `http://localhost:5173/login`.
    - Tunjukkan card login yang bersih, modern, dan proporsional tanpa ikon klise.
-   - Klik tautan **Forgot password?** untuk menunjukkan modal pemulihan kata sandi.
-   - Klik **"Isi kredensial demo otomatis"** lalu tekan **Sign in**.
+   - Klik **"Isi kredensial demo"** lalu tekan **Sign in**.
 
 2. **Bagian 2: Alur Efisien Recruiter - New Assessment (0:45 - 1:30)**
    - Masuk ke menu **Assessments** -> klik **New Assessment**.
