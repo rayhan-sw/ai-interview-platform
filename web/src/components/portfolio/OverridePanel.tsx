@@ -17,7 +17,8 @@ interface OverridePanelProps {
 
 export default function OverridePanel({ skill, existingOverride, onSaved }: OverridePanelProps) {
   const [open, setOpen] = useState(false);
-  const [overrideLevel, setOverrideLevel] = useState(existingOverride?.override_level ?? parseLevel(skill.ai_level));
+  const parsedAiLevel = parseLevel(skill.ai_level);
+  const [overrideLevel, setOverrideLevel] = useState<number>(existingOverride?.override_level ?? parsedAiLevel ?? 3);
   const [notes, setNotes] = useState(existingOverride?.assessor_notes ?? "");
   const [saving, setSaving] = useState(false);
   const [saveError, setSaveError] = useState(false);
@@ -47,7 +48,11 @@ export default function OverridePanel({ skill, existingOverride, onSaved }: Over
         {hasOverride ? (
           <>
             <div className="flex items-center gap-1.5 text-sm">
-              <LevelBadge level={parseLevel(skill.ai_level)} size="sm" />
+              {parsedAiLevel ? (
+                <LevelBadge level={parsedAiLevel} size="sm" />
+              ) : (
+                <span className="text-xs text-muted-foreground italic">Belum Diuji</span>
+              )}
               <span className="text-muted-foreground text-xs">AI</span>
               <span className="text-muted-foreground">→</span>
               <LevelBadge level={existingOverride!.override_level} size="sm" />

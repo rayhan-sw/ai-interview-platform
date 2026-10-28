@@ -1,12 +1,12 @@
 export const TIME_LIMIT_OPTIONS = [10, 30, 45, 60, 90] as const;
 
-/** Parse "L3" → 3, passthrough number, aman terhadap null/undefined/string kosong, fallback ke 1 */
-export function parseLevel(level: string | number | null | undefined): number {
-  if (level === null || level === undefined) return 1;
-  if (typeof level === "number") return level;
-  if (typeof level !== "string") return 1;
+/** Parse "L3" → 3, passthrough number, mengembalikan null jika input null/undefined/invalid */
+export function parseLevel(level: string | number | null | undefined): number | null {
+  if (level === null || level === undefined) return null;
+  if (typeof level === "number") return level >= 1 && level <= 5 ? level : null;
+  if (typeof level !== "string") return null;
   const n = parseInt(level.replace(/\D/g, ""), 10);
-  return isNaN(n) ? 1 : n;
+  return isNaN(n) ? null : n;
 }
 
 export const LEVEL_LABELS: Record<number, string> = {
